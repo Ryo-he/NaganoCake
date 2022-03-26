@@ -1,0 +1,12 @@
+<h1>注文履歴一覧</h1>
+<p>購入日時</p>
+<p>購入者</p>
+<p>注文個数</p>
+<% @orders.each do |order| %>
+<%= link_to admin_order_path(order.id) do %>
+<%= 1 order.created_at, format: :short %>
+<% end %>
+<%= order.customer.name %>
+<%= @customer.order.count %>
+<% end %>
+

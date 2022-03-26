@@ -1,0 +1,29 @@
+<%= link_to "カートを空にする", destroy_all_cart_item_path, method: :delete %>
+<h1>ショッピングカート</h1>
+<p>商品名</p>
+<p>単価（税込み）</p>
+<% @items.each do |item| %>
+<% if item.image.attached? %>
+<%= image_tag item.image, size: "50x50" %>
+<% else %>
+<%= image_tag '/assets/no_image.jpg', size: "50x50" %>
+<% end %>
+<%= item.name %>
+<%= item.add_tax_price %>
+<% end %>
+<p>数量</p>
+<p>小計</p>
+<p>合計金額</p>
+<%= @cart_items.each do |cart_item| %>
+<%= form_with model: cart_item, url: public_cart_items_path, local: true do |f| %>
+<%= f.collection_select(:item_id, @cart_items, :id, :amount)%>
+<%= f.submit '変更' %>
+<% end %>
+<%= cart_item.subtotal %>
+<%= link_to "削除する", destroy_cart_item_path(cart_item.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+<% end %>
+<%= @total.to_s %>
+<%= link_to "買い物を続ける", public_items_path %>
+<%= link_to "情報入力に進む", new_public_order_path %>
+
+

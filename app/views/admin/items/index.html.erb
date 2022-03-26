@@ -1,0 +1,21 @@
+<h1>商品一覧</h1>
+<% @items.each do |item| %>
+<% if item.image.attached? %>
+<%= image_tag item.image, size: "50x50" %>
+<% else %>
+<%= image_tag '/assets/no_image.jpg', size: "50x50" %>
+<% end %>
+<p>商品ID</p>
+<%= item.id %>
+<p>商品名</p>
+<%= link_to admin_item_path(item.id) do %>
+<%= item.name %>
+<% end %>
+<p>税抜き価格</p>
+<%= item.price %>
+<p>ジャンル</p>
+<%= item.genre.name %>
+<p>ステータス</p>
+<%= item.is_active %>
+
+<% end %>

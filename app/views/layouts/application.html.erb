@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>NaganoCake</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+     <header class = "bg-dark">
+    <nav class = "navbar">
+    <% if customer_signed_in? %>
+    <div class = "container">
+      <%= link_to public_customer_path(current_customer.id),class:"text-light" do %>
+      <span>マイページ</span>
+      <% end %>
+
+      <%= link_to "/public/items",class:"text-light" do %>
+      <i class ="fas fa-home"></i>商品一覧
+      <% end %>
+
+      <%= link_to "public/cart_items",class:"text-light" do %>
+      <i class ="fas fa-users"></i>カート
+      <% end %>
+
+      <%= link_to "/customers/sign_out",class:"text-light" do %>
+      <i class ="fas fa-sign-out-alt"></i>ログアウト
+      <% end %>
+
+    </div>
+    <% else %>
+      <%= link_to "/public/homes/about",class:"text-light" do %>
+      <span>About</span>
+      <% end %>
+
+      <%= link_to "/public/items",class:"text-light" do %>
+      <i class ="fas fa-home"></i>商品一覧
+      <% end %>
+
+      <%= link_to "/customers/sign_up",class:"text-light" do %>
+      <i class ="fas fa-user-plus"></i>新規登録
+      <% end %>
+
+      <%= link_to "/customers/sign_in",class:"text-light" do %>
+      <i class ="fas fa-sign-in-alt"></i>ログイン
+      <% end %>
+    </div>
+    <% end %>
+    </nav>
+    </nav>
+    </header>
+    <%= yield %>
+  </body>
+</html>

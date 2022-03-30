@@ -7,7 +7,7 @@
 <p>商品説明</p>
 <%= f.text_area :introduction %>
 <p>ジャンル</p>
-<%= f.collection_select(:name, @genres, :id, :name) %>
+<%= f.collection_select(:genre_id, @genres, :id, :name, {prompt: "選択してください"}) %>
 <p>税抜き価格</p>
 <%= f.text_field :price, placeholder: "1000" %><p>円</p>
 <p>販売ステータス</p>

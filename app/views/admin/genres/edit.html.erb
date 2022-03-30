@@ -1,6 +1,19 @@
-<h1>ジャンル編集</h1>
+<h3>ジャンル編集</h3>
 <%= form_with model: @genre, url: admin_genre_path, local: true do |f| %>
-<p>ジャンル名</p>
+<table>
+<tbody>
+<tr>
+<th>
+ジャンル名
+</th>
+<td>
 <%= f.text_field :name %>
-<%= f.submit '変更を保存' %>
+</td>
+<td>
+ <input class="btn btn-success" type="submit" value="変更を保存">
 <% end %>
+</td>
+</tr>
+</tbody>
+</table>
+<table>

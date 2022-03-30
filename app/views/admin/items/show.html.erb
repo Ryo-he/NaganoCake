@@ -1,18 +1,41 @@
-<h1>商品詳細</h1>
+<h3>商品詳細</h3>
 <% if @item.image.attached? %>
-<%= image_tag @item.image, size: "50x50" %>
+<%= image_tag @item.image, size: "100x100" %>
 <% else %>
 <%= image_tag '/assets/no_image.jpg', size: "50x50" %>
 <% end %>
-<p>商品名</p>
+<table>
+<tbody>
+<tr>
+<td>商品名</td>
+<td>
 <%= @item.name %>
-<p>商品説明</p>
-<%= @item.introduction %>
-<p>ジャンル</p>
-<%= @item.genre_name %>
-<p>税込み価格（税抜き価格）</p>
-<%= @item.price %>
-<p>ステータス</p>
+</td>
+</tr>
+<tr>
+<td>商品説明</td>
+<td><%= @item.introduction %></td>
+</tr>
+<tr>
+<td>ジャンル</td>
+<td><%= @item.genre_name %></td>
+</tr>
+<tr>
+<td>税込価格</br>（税抜価格）</td>
+<td>
+<%= @item.add_tax_price %>(<%= @item.price %>)円
+</td>
+</tr>
+<tr>
+<td>ステータス</td>
+<td>
 <%= @item.is_active %>
-
-<%= link_to "編集する",edit_admin_item_path(@item.id) %>
+</td>
+</tr>
+<tr>
+<td>
+<%= link_to "編集する",edit_admin_item_path(@item.id), class: "btn btn-success" %>
+</td>
+</tr>
+</tbody>
+</table>

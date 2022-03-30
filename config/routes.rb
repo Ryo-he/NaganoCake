@@ -29,8 +29,8 @@ Rails.application.routes.draw do
     get '/orders/complete' => 'public/orders#complete', as: 'complete'
     post '/orders/confirm' => 'public/orders#confirm', as: 'confirm'
     delete '/cart_items' => 'public/cart_items#destroy_all', as: 'destroy_all'
-    get 'customers/unsubscribe' => 'public/customers#unsubscribe', as: 'unsubscribe'
-    patch 'customers/withdrawal' => 'public/customers#withdrawal', as: 'withdrawal'
+    get 'customer/unsubscribe' => 'public/customers#unsubscribe', as: 'unsubscribe'
+    patch 'customer/withdrawal' => 'public/customers#withdrawal', as: 'withdrawal'
   end
   root to: 'public/homes#top'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

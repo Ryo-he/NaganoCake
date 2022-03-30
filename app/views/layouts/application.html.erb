@@ -11,50 +11,47 @@
   </head>
 
   <body>
-     <header class = "bg-dark">
+     <header class = "bg-white">
     <nav class = "navbar">
     <% if customer_signed_in? %>
     <div class = "container">
-      <%= link_to public_customer_path(current_customer.id),class:"text-light" do %>
-      <span>マイページ</span>
+      <%= link_to public_customer_path(current_customer.id),class:"text-dark" do %>
+      <button type="button" class="btn btn-outline-dark">マイページ</button>
       <% end %>
 
-      <%= link_to "/public/items",class:"text-light" do %>
-      <i class ="fas fa-home"></i>商品一覧
+      <%= link_to "/public/items",class:"text-dark" do %>
+      <button type="button" class="btn btn-outline-dark">商品一覧</button>
       <% end %>
 
-      <%= link_to "public/cart_items",class:"text-light" do %>
-      <i class ="fas fa-users"></i>カート
+      <%= link_to "public/cart_items",class:"text-dark" do %>
+      <button type="button" class="btn btn-outline-dark">カート</button>
       <% end %>
 
-      <%= link_to "/customers/sign_out",class:"text-light" do %>
-      <i class ="fas fa-sign-out-alt"></i>ログアウト
+      <%= link_to "/customers/sign_out",class:"text-dark" do %>
+      <button type="button" class="btn btn-outline-dark">ログアウト</button>
       <% end %>
 
     </div>
     <% elsif admin_signed_in? %>
       <%= admin_signed_in? %>
-      <%= link_to destroy_admin_session_path, method: :delete, class:"text-light" do %>
-        <i class ="fas fa-sign-out-alt"></i>ログアウト
+      <%= link_to destroy_admin_session_path, method: :delete, class:"text-dark" do %>
+      <button type="button" class="btn btn-outline-dark">ログアウト</button>
       <% end %>
     <% else %>
-      <%= link_to destroy_admin_session_path, method: :delete, class:"text-light" do %>
-      <i class ="fas fa-sign-out-alt"></i>ログアウト
-      <% end %>
-      <%= link_to "/public/homes/about",class:"text-light" do %>
-      <span>About</span>
+      <%= link_to "/public/homes/about",class:"text-dark" do %>
+      <button type="button" class="btn btn-outline-dark">About</button>
       <% end %>
 
-      <%= link_to "/public/items",class:"text-light" do %>
-      <i class ="fas fa-home"></i>商品一覧
+      <%= link_to "/public/items",class:"text-dark" do %>
+      <button type="button" class="btn btn-outline-dark">商品一覧</button>
       <% end %>
 
-      <%= link_to "/customers/sign_up",class:"text-light" do %>
-      <i class ="fas fa-user-plus"></i>新規登録
+      <%= link_to "/customers/sign_up",class:"text-dark" do %>
+      <button type="button" class="btn btn-outline-dark">新規登録</button>
       <% end %>
 
-      <%= link_to "/customers/sign_in",class:"text-light" do %>
-      <i class ="fas fa-sign-in-alt"></i>ログイン
+      <%= link_to "/customers/sign_in",class:"text-dark" do %>
+      <button type="button" class="btn btn-outline-dark">ログイン</button>
       <% end %>
     </div>
     <% end %>

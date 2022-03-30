@@ -6,7 +6,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
@@ -32,7 +32,15 @@
       <% end %>
 
     </div>
+    <% elsif admin_signed_in? %>
+      <%= admin_signed_in? %>
+      <%= link_to destroy_admin_session_path, method: :delete, class:"text-light" do %>
+        <i class ="fas fa-sign-out-alt"></i>ログアウト
+      <% end %>
     <% else %>
+      <%= link_to destroy_admin_session_path, method: :delete, class:"text-light" do %>
+      <i class ="fas fa-sign-out-alt"></i>ログアウト
+      <% end %>
       <%= link_to "/public/homes/about",class:"text-light" do %>
       <span>About</span>
       <% end %>
@@ -52,6 +60,8 @@
     <% end %>
     </nav>
     </nav>
+    <%= admin_signed_in? %>
+    <%= customer_signed_in? %>
     </header>
     <%= yield %>
   </body>

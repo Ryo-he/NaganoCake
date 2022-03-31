@@ -1,11 +1,21 @@
-<h1>配送先編集</h1>
-<%= form_with model: @address, url: public_deliver_path, local: true do |f| %>
-<p>郵便番号（ハイフンなし）</p>
-<%= f.text_field :postal_code %>
-<p>住所</p>
-<%= f.text_field :resident %>
-<p>宛名</p>
-<%= f.text_field :name %>
-<%= f.submit '変更内容を保存' %>
-
+<h4>配送先編集</h4>
+<%= form_with model: @address, url: public_delivery_path, local: true do |f| %>
+<table>
+<tbody>
+<tr>
+<td>郵便番号（ハイフンなし）</td>
+<td><%= f.text_field :postal_code %></td>
+</tr>
+<tr>
+<td>住所</td>
+<td><%= f.text_field :resident, size:40 %></td>
+</tr>
+<tr>
+<td>宛名</td>
+<td><%= f.text_field :name %></td>
+<td><input class="btn btn-success" type="submit" value="変更を保存"></td>
 <% end %>
+</tr>
+</tbody>
+</table>
+

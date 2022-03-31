@@ -22,7 +22,7 @@ ja:
   enums:
     customer:
       is_active:
-        valid: '有効'
+        validity: '有効'
         withdrawal: '退会'
 ja:
   activerecord:

@@ -27,13 +27,21 @@
       <button type="button" class="btn btn-outline-dark">カート</button>
       <% end %>
 
-      <%= link_to "/customers/sign_out",class:"text-dark" do %>
+      <%= link_to destroy_customer_session_path, method: :delete, class:"text-dark" do %>
       <button type="button" class="btn btn-outline-dark">ログアウト</button>
       <% end %>
 
     </div>
     <% elsif admin_signed_in? %>
       <%= admin_signed_in? %>
+      <%= link_to "/customers/sign_up",class:"text-dark" do %>
+      <button type="button" class="btn btn-outline-dark">新規登録</button>
+      <% end %>
+
+      <%= link_to "/customers/sign_in",class:"text-dark" do %>
+      <button type="button" class="btn btn-outline-dark">ログイン</button>
+      <% end %>
+      
       <%= link_to destroy_admin_session_path, method: :delete, class:"text-dark" do %>
       <button type="button" class="btn btn-outline-dark">ログアウト</button>
       <% end %>

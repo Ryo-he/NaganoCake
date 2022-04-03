@@ -6,8 +6,8 @@ class Customer < ApplicationRecord
   has_many :orders
   has_many :addresses
   has_many :cart_items
-  enum is_active: { validity: true, withdrawal: false }
+
   def active_for_authentication?
-     super && (is_active == "validity")
+     super && (is_active == true)
   end
 end

@@ -118,10 +118,9 @@ ActiveRecord::Schema.define(version: 2022_03_24_084400) do
     t.string "name"
     t.text "introduction"
     t.integer "price"
+    t.boolean "is_active", default: true, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "genre_name"
-    t.integer "is_active"
   end
 
   create_table "ordered_items", force: :cascade do |t|

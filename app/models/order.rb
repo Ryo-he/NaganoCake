@@ -1,5 +1,5 @@
 class Order < ApplicationRecord
-
+  belongs_to :orders
   has_many :ordered_items
   has_many :addresses
   enum payment_method: { creditcard: 0, transfer: 1 }

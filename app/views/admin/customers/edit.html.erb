@@ -33,9 +33,9 @@
 <tr>
 <td>会員ステータス</td>
 <td>
-<%= f.label :is_active, :'validity', value: 1 %>
+<%= f.label :is_active, '有効', value: true %>
 <%= f.radio_button :is_active, :'validity' %>
-<%= f.label :is_active, :'withdrawal', value: 0 %>
+<%= f.label :is_active, '退会', value: false %>
 <%= f.radio_button :is_active, :'withdrawal' %>
 </td>
 </tr>

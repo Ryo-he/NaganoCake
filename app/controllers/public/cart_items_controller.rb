@@ -7,11 +7,10 @@ class Public::CartItemsController < ApplicationController
   
   def create
     @item = Item.find(cart_item_params[:item_id])
-    @cart_item = CartItem.find(params[:id])
   if CartItem.find_by(item_id: @item.id)
-    @cart_item.amount += @item.cart_item.amount.to_i
+    @item.amount += @item.cart_item.amount.to_i
   else
-    @cart_item.save
+    @item.save
     redirect_to request.referer
   end
   end

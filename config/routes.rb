@@ -26,11 +26,11 @@ Rails.application.routes.draw do
     resources :items, only: [:index, :show]
     resources :cart_items, only: [:index, :create, :update, :destroy]
     resources :orders, only: [:new, :index, :show, :create]
-    get '/orders/complete' => 'public/orders#complete', as: 'complete'
-    post '/orders/confirm' => 'public/orders#confirm', as: 'confirm'
-    delete '/cart_items' => 'public/cart_items#destroy_all', as: 'destroy_all'
-    get 'customer/unsubscribe' => 'public/customers#unsubscribe', as: 'unsubscribe'
-    patch 'customer/withdrawal' => 'public/customers#withdrawal', as: 'withdrawal'
+    get '/orders/complete' => 'orders#complete', as: 'complete'
+    post '/orders/confirm' => 'orders#confirm', as: 'confirm'
+    delete '/cart_items' => 'cart_items#destroy_all', as: 'destroy_all'
+    get 'customer/unsubscribe' => 'customers#unsubscribe', as: 'unsubscribe'
+    patch 'customer/withdrawal' => 'customers#withdrawal', as: 'withdrawal'
   end
   root to: 'public/homes#top'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

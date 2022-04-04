@@ -3,31 +3,33 @@
 <p>単価（税込み）</p>
 <p>数量</p>
 <p>小計</p>
-<% @cart_item.each do |cart_item| %>
+<% @cart_items.each do |cart_item| %>
 <%= cart_item.item.name %>
 <%= cart_item.item.price %>
 <%= cart_item.amount %>
-<%= cart_item.subtotal %>
+<%= @total += cart_item.subtotal %>
 <% end %>
 
 <p>送料</p>
 <%= @order.postage %>
 <p>商品合計</p>
-<%= @total.to_s %>
+
 <p>請求金額</p>
-<%= @payment_amount.to_s %>
+
 
 <p>支払方法</p>
 <%= @order.payment_method %>
 <p>お届け先</p>
+〒<%= @order.postal_code %>
 <%= @order.address %>
+<%= @order.delivery_name %>
 
 <%= form_with model: @order ,url: public_orders_path, local: true do |f| %>
 <%= f.hidden_field :delivery_name, :value => @order.delivery_name %>
-<%= f.hidden_field :postal_code, :value => @order.postl_code %>
+<%= f.hidden_field :postal_code, :value => @order.postal_code %>
 <%= f.hidden_field :address, :value => @order.address %>
 <%= f.hidden_field :payment_amount, :value => @payment_amount %>
-<%= f.hidden_field :name, :value => @cart_items.item.name %>
+<%= f.hidden_field :name, :value => @cart_items.name %>
 <%= f.submit '注文を確定する' %>
 <% end %>
 

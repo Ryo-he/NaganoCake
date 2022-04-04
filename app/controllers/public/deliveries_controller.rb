@@ -1,6 +1,6 @@
 class Public::DeliveriesController < ApplicationController
   def index
-    @addresses = Address.all
+    @addresses = current_customer.addresses
     @address = Address.new
   end
 
@@ -8,10 +8,10 @@ class Public::DeliveriesController < ApplicationController
      @address = Address.new(address_params)
      @address.customer_id = current_customer.id
   if @address.save
-    redirect_to request.referer
+     redirect_to request.referer
   else
-    @addresses = Address.all
-    render :index
+     @addresses = Address.all
+     render :index
   end
   end
 

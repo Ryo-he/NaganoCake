@@ -4,9 +4,9 @@
 <p>注文個数</p>
 <% @orders.each do |order| %>
 <%= link_to admin_order_path(order.id) do %>
-<%= 1 order.created_at, format: :short %>
+<%= order.created_at %>
 <% end %>
-<%= order.customer.name %>
-<%= @customer.order.count %>
+<%= order.customer.first_name %>
+<%= order.customer.last_name %>
 <% end %>
 

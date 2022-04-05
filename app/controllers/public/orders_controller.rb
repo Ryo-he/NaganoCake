@@ -12,7 +12,7 @@ class Public::OrdersController < ApplicationController
       ordered_item.item_id = cart_item.item_id
       ordered_item.order_id = @order.id
       ordered_item.amount = cart_item.amount
-      ordered_item.purchase = cart_item.item.price
+      ordered_item.purchase = cart_item.item.add_tax_price
       ordered_item.save
     end
   redirect_to public_complete_path
@@ -44,22 +44,22 @@ class Public::OrdersController < ApplicationController
     elsif params[:order][:select_address] == "3"
        @order = Order.new(order_params)
     end
-
-
-    @cart_items = current_customer.cart_items
-    @total = 0
+      @cart_items = current_customer.cart_items
+      @subtotal = 0
+      @order.postage = 800
+      @total = 0
   end
 
   def index
-    @orders = Order.all
+    @orders = current_customer.orders
   end
 
   def show
     @order = Order.find(params[:id])
-    @ordered_item = OrderedItem.find(params[:id])
-    @cart_items = current_customer.cart_item.all
-    @total = @cart_items.inject(0) { |sum, item| sum + item.subtotal }
-    @payment_amount = @order.postage + @total
+    @ordered_items = @order.ordered_items
+    @subtotal = 0
+    @order.postage = 800
+    @total = 0
   end
 
   private

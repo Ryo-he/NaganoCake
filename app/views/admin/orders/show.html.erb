@@ -1,14 +1,15 @@
 <h1>注文履歴詳細</h1>
 <p>購入者</p>
 <%= link_to '/' do %>
-<%= @customer.name %>
+<%= @order.customer.first_name %>
+<%= @order.customer.last_name %>
 <% end %>
 <p>注文日</p>
 <%= link_to admin_orders_path(@order.id) do %>
-<%= 1 @order.created_at, format: :short %>
+<%= @order.created_at %>
 <% end %>
 <p>配送先</p>
-<%= @order.adress %>
+<%= @order.address %>
 <%= @order.delivery_name %>
 <p>支払方法</p>
 <%= @order.payment_method %>
@@ -18,21 +19,22 @@
 <p>数量</p>
 <p>小計</p>
 <p>製作ステータス</p>
-<%= @ordered_items.each do |ordered_item| %>
+<p>商品合計</p>
+<% @ordered_items.each do |ordered_item| %>
 <%= ordered_item.item.name %>
 <%= ordered_item.item.add_tax_price %>
 <%= ordered_item.amount %>
-<%= ordered_item.item.subtotal %>
-<%= form_with model: ordered_item, local :true do |f| %>
+<%= ordered_item.amount*ordered_item.purchase %>
+<%= form_with model: ordered_item,url: admin_order_path, local: true do |f| %>
 <%= f.select :is_active, [["着手不可", "着手不可"], ["製作中", "製作中"], ["完了", "完了"]], include_blank: "選択して下さい" %>
 <%= f.submit '更新' %>
 <% end %>
-
-<p>商品合計</p>
-<%= @total.to_s %>
+<% @subtotal += ordered_item.purchase*ordered_item.amount %>
+<% end %>
+<%= @subtotal %>
 <p>送料</p>
 <%= @order.postage %>
 <p>請求金額合計</p>
-<%= @payment_amount.to_s %>
-<% end %>
+<%= @total = @order.postage + @subtotal %>
+
 

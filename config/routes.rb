@@ -31,7 +31,7 @@ Rails.application.routes.draw do
     delete '/cart_items' => 'cart_items#destroy_all', as: 'destroy_all'
     get 'customer/unsubscribe' => 'customers#unsubscribe', as: 'unsubscribe'
     patch 'customer/withdrawal' => 'customers#withdrawal', as: 'withdrawal'
-  end
+end
   root to: 'public/homes#top'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

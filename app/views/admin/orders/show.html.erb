@@ -25,9 +25,6 @@
 <%= ordered_item.item.add_tax_price %>
 <%= ordered_item.amount %>
 <%= ordered_item.amount*ordered_item.purchase %>
-<%= form_with model: ordered_item,url: admin_order_path, local: true do |f| %>
-<%= f.select :is_active, [["着手不可", "着手不可"], ["製作中", "製作中"], ["完了", "完了"]], include_blank: "選択して下さい" %>
-<%= f.submit '更新' %>
 <% end %>
 <% @subtotal += ordered_item.purchase*ordered_item.amount %>
 <% end %>

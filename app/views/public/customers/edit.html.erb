@@ -1,5 +1,10 @@
 <h3>会員情報編集</h3>
-<%= form_with model: @customer, url: public_customer_path, local: true do |f| %>
+</div>
+</div>
+<%= form_with model: @customer, url: customer_path, local: true do |f| %>
+<div class="container">
+<div class="row">
+<div class ="col-ml-2"></div>
 <table>
 <tbody>
 <tr>
@@ -36,14 +41,21 @@
 <td>メールアドレス</td>
 <td><%= f.text_field :email %></td>
 </tr>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class ="col-lg-5"></div>
 <tr>
 <td>
 <input class="btn btn-success" type="submit" value="編集内容を保存">
 <% end %>
 </td>
 <td>
-<%= link_to '退会する', public_unsubscribe_path,class: "btn btn-danger" %>
+<%= link_to '退会する', unsubscribe_path,class: "btn btn-danger" %>
 </td>
 </tr>
 </tbody>
 </table>
+</div>
+</div>

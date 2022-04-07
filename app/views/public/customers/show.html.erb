@@ -1,15 +1,29 @@
+<div class="container">
+<div class="row">
+<div class ="col-ml-2"></div>
 <h3>マイページ</h3>
+</div>
+</div>
+
+<div class="container">
+<div class="row">
+<div class ="col-ml-2"></div>
 <table>
 <tbody>
 <tr>
 <th>登録情報</th>
 <td>
-<%= link_to '編集する', edit_public_customer_path,class: "btn btn-success btn-sm" %>
+<%= link_to '編集する', edit_customer_path,class: "btn btn-success btn-sm" %>
 </td>
 </tr>
 </tbody>
 </table>
-<table border="1">
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class ="col-ml-2"></div>
+<table border="1" width="30%">
 <tbody>
 <tr>
 <td>氏名</td>
@@ -50,20 +64,27 @@
 </tr>
 </tbody>
 </table>
+</div>
+</div>
 
+<div class="container">
+<div class="row">
+<div class ="col-ml-2"></div>
 <table>
 <tbody>
 <tr>
 <th>配送先</th>
 <td>
-<%= link_to '一覧を見る', public_deliveries_path, class: "btn btn-primary btn-sm" %>
+<%= link_to '一覧を見る', deliveries_path, class: "btn btn-primary btn-sm" %>
 </td>
 </tr>
 <tr>
 <th>注文履歴</th>
 <td>
-<%= link_to '一覧を見る', public_orders_path, class: "btn btn-primary btn-sm" %>
+<%= link_to '一覧を見る', orders_path, class: "btn btn-primary btn-sm" %>
 </td>
 </tr>
 </tbody>
 </table>
+</div>
+</div>

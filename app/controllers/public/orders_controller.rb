@@ -15,7 +15,7 @@ class Public::OrdersController < ApplicationController
       ordered_item.purchase = cart_item.item.add_tax_price
       ordered_item.save
     end
-  redirect_to public_complete_path
+  redirect_to complete_path
   cart_items.destroy_all
   else
     @order = Order.new(order_params)

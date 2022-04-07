@@ -18,15 +18,15 @@ Rails.application.routes.draw do
     get 'homes/top'
     patch '/admin/ordered_itmes/:id'=>'ordered_items#update'
   end
-  namespace :public do
+  scope module: :public do
     get 'homes/top'
     get 'homes/about'
+    get '/orders/complete' => 'orders#complete', as: 'complete'
+    post '/orders/confirm' => 'orders#confirm', as: 'confirm'
     resource :customer
     resources :deliveries, only: [:index, :edit, :create, :update, :destroy]
     resources :items, only: [:index, :show]
     resources :cart_items, only: [:index, :create, :update, :destroy]
-    get '/orders/complete' => 'orders#complete', as: 'complete'
-    post '/orders/confirm' => 'orders#confirm', as: 'confirm'
     resources :orders, only: [:new, :index, :show, :create]
     delete '/cart_items' => 'cart_items#destroy_all', as: 'destroy_all'
     get 'customer/unsubscribe' => 'customers#unsubscribe', as: 'unsubscribe'

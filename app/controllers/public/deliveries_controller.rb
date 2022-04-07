@@ -22,7 +22,7 @@ class Public::DeliveriesController < ApplicationController
   def update
     @address = Address.find(params[:id])
     if @address.update(address_params)
-      redirect_to public_deliveries_path
+      redirect_to deliveries_path
     else render :edit
     end
   end
@@ -31,7 +31,7 @@ class Public::DeliveriesController < ApplicationController
    @address = Address.find(params[:id])
    @address.destroy
    @addresses = Address.all
-   redirect_to public_deliveries_path
+   redirect_to deliveries_path
   end
 
   private

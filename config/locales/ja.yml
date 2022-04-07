@@ -16,7 +16,7 @@ ja:
  enums:
   order:
    payment_method:
-    credit_card: 'クレジットカード'
+    creditcard: 'クレジットカード'
     transfer: '振り込み'
   ja:
   enums:

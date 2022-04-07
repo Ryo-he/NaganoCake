@@ -1,13 +1,21 @@
+<div class="container">  
+<div class="row">
+<div class = "col-lg-4">
 <% if @item.image.attached? %>
-<%= image_tag @item.image, size: "50x50" %>
+<%= image_tag @item.image, size: "300x300" %>
 <% else %>
-<%= image_tag '/assets/no_image.jpg', size: "50x50" %>
+<%= image_tag '/assets/no_image.jpg', size: "300x300" %>
 <% end %>
-<h1><%= @item.name %></h1>
-<%= @item.introduction %>
-<p>￥</p><%= @item.add_tax_price %><p>(税込み)</p>
-<%= form_with model: @cart_item, url: public_cart_items_path, local: true do |f| %>
+</div>
+<div class = "col-lg-8">
+<h3><%= @item.name %></h3>
+<p><%= @item.introduction %></p>
+<p>￥<%= @item.add_tax_price %>(税込み)</p>
+<%= form_with model: @cart_item, url: cart_items_path, local: true do |f| %>
 <%= f.select :amount, *[1..99] %>
 <%= f.hidden_field :item_id, :value => @item.id %>
-<%= f.submit "カートに入れる" %>
+<input class="btn btn-success" type="submit" value="カートに入れる">
 <% end %>
+</div>
+</div>
+</div>

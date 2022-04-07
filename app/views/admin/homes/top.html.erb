@@ -1,9 +1,34 @@
-<h1>注文履歴一覧</h1>
-<p>購入日時</p>
-<p>購入者</p>
-<p>注文個数</p>
+<div class="container">
+<div class="row">
+<div class ="col-ml-4"></div>
+<h3>注文履歴一覧</h3>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class ="col-ml-6"></div>
+<table width="50%">
+<tbody>
+<tr>
+<th>購入日時</th>
+<th>購入者</th>
+<th>注文個数</th>
+</tr>
 <% @orders.each do |order| %>
-<%= order.ordered_at %>
-<%= order.customer.name %>
-<%= order.amount %>
+<tr>
+<td>
+<%= link_to admin_order_path(order.id) do %>
+<%= order.created_at %>
+<% end %>  
+</td>
+<td><%= order.customer.first_name %>
+    <%= order.customer.last_name %>
+</td>
+<td></td>
+</tr>
 <% end %>
+</tbody>
+</table>
+</div>
+</div>
+<%= paginate @orders %>

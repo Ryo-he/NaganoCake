@@ -1,9 +1,20 @@
+<div class="container">
+<div class="row">
+<div class ="col-ml-2"></div>
 <h3>商品詳細</h3>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class ="col-lg-4">
 <% if @item.image.attached? %>
-<%= image_tag @item.image, size: "100x100" %>
+<%= image_tag @item.image, size: "300x300" %>
 <% else %>
-<%= image_tag '/assets/no_image.jpg', size: "50x50" %>
+<%= image_tag '/assets/no_image.jpg', size: "300x300" %>
 <% end %>
+</div>
+
+<div class ="col-lg-8">
 <table>
 <tbody>
 <tr>
@@ -30,9 +41,9 @@
 <td>ステータス</td>
 <td>
 <% if @item.is_active == true %>
-<%= '販売中' %>
+<div class="text-success">販売中</div>
 <% else %>
-<%= '販売停止中' %>
+<div class="text-secondary">販売停止中</div>
 <% end %>
 </td>
 </tr>
@@ -43,3 +54,4 @@
 </tr>
 </tbody>
 </table>
+</div>

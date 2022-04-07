@@ -1,37 +1,93 @@
-<h1>注文履歴詳細</h1>
-<p>購入者</p>
-<%= link_to '/' do %>
+<div class="container">
+<div class="row">
+<div class ="col-ml-4"></div>
+<h4>注文履歴詳細</h4>
+</div>
+</div>
+
+<div class="container">
+<div class="row">
+<div class ="col-ml-4"></div>
+<table width="50%">
+<tbody>
+<tr>
+<th>購入者</th>
+<td><%= link_to admin_order_path(@order.id) do %>
 <%= @order.customer.first_name %>
 <%= @order.customer.last_name %>
 <% end %>
-<p>注文日</p>
-<%= link_to admin_orders_path(@order.id) do %>
-<%= @order.created_at %>
-<% end %>
-<p>配送先</p>
-<%= @order.address %>
+</td>
+</tr>
+<tr>
+<th>注文日</th>
+<td><%= @order.created_at %></td>
+</tr>
+<tr>
+<th>配送先</th>
+<td>〒<%= @order.postal_code %></br>
+<%= @order.address %></br>
 <%= @order.delivery_name %>
-<p>支払方法</p>
-<%= @order.payment_method %>
+</td>
+</tr>
+<tr>
+<th>支払方法</th>
+<td>
+<% if @order.payment_method == true %>
+<%= 'クレジットカード' %>
+<% else %>
+<%= '銀行振り込み' %>
+<% end %>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 
-<p>商品名</p>
-<p>単価（税込）</p>
-<p>数量</p>
-<p>小計</p>
-<p>製作ステータス</p>
-<p>商品合計</p>
+<div class="container">
+<div class="row">
+<div class ="col-lg-8 mt-5">
+<table width="100%">
+<tbody>
+<tr>
+<td>商品名</td>
+<td>単価(税込)</td>
+<td>数量</td>
+<td>小計</td>
+</tr>
 <% @ordered_items.each do |ordered_item| %>
-<%= ordered_item.item.name %>
-<%= ordered_item.item.add_tax_price %>
-<%= ordered_item.amount %>
-<%= ordered_item.amount*ordered_item.purchase %>
-<% end %>
+<tr>
+<td><%= ordered_item.item.name %></td>
+<td><%= ordered_item.item.add_tax_price %></td>
+<td><%= ordered_item.amount %></td>
+<td><%= ordered_item.amount*ordered_item.purchase %></td>
 <% @subtotal += ordered_item.purchase*ordered_item.amount %>
+</tr>
 <% end %>
-<%= @subtotal %>
-<p>送料</p>
-<%= @order.postage %>
-<p>請求金額合計</p>
-<%= @total = @order.postage + @subtotal %>
+</tbody>
+</table>
+</div>
+
+<div class ="col-lg-4 mt-5">
+<table>
+<tbody>
+<tr>
+<td>商品合計</td>
+<td><%= @subtotal %></td>
+</tr>
+<tr>
+<td>送料</td>
+<td><%= @order.postage %></td>
+</tr>
+<tr>
+<td>請求金額合計</td>
+<td><%= @total = @order.postage + @subtotal %></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
 
 

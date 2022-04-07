@@ -9,9 +9,6 @@ class Public::RegistrationsController < Devise::RegistrationsController
   # def new
   #   super
   # end
-   if @customer.save
-    flash[:success] = 'ようこそ！' + current_customer.name + 'さん'
- 　end
   #POST /resource
   #def create
    # super

@@ -1,7 +1,7 @@
 class Public::CartItemsController < ApplicationController
   def index
     @cart_items = current_customer.cart_items
-    @total = 0
+    @subtotal = 0
   end
 
   def create
@@ -23,7 +23,7 @@ class Public::CartItemsController < ApplicationController
     @cart_item.save
 
   end
-    redirect_to public_cart_items_path
+    redirect_to cart_items_path
   end
 
   def update

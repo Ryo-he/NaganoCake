@@ -1,21 +1,40 @@
-<h2>ログイン</h2>
+<div class="container">
+<div class="row">
+<div class ="col-ml-2"></div>
 
+<h3>ログイン</h3>
+</div>
+</div>
 <%= form_with model: @customer, url: customer_session_path, local: true do |f| %>
+<div class="field">
+<div class="container">
+<div class="row">
+<div class ="col-ml-4"></div>
+<table width="50%">
+<tbody>
+<tr>
+<td><%= f.label 'メールアドレス' %></td>
+<td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
+</tr>
+</div>
   <div class="field">
-    <%= f.label 'メールアドレス' %>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<tr>
+  <td><%= f.label 'パスワード' %></td>
+  <td><%= f.password_field :password, autocomplete: "current-password" %></td>
   </div>
-
-  <div class="field">
-    <%= f.label 'パスワード' %>
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
+</tr>
+<tr>
   <div class="actions">
-  <input class="btn btn-primary" type="submit" value="ログイン">
+<td><input class="btn btn-primary" type="submit" value="ログイン"></td>
+</tr>
   </div>
 <% end %>
-<p>会員登録がお済みでない方</br>
-<%= link_to 'こちら', new_customer_registration_path %></p>
-
-<%= render "public/shared/links" %>
+<tr>
+<td>会員登録がお済みでない方</br>
+<%= link_to 'こちら', new_customer_registration_path %></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>

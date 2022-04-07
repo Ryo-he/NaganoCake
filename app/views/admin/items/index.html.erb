@@ -1,4 +1,7 @@
-<table>
+<div class="container">
+<div class="row">
+<div class ="col-ml-6"></div>
+<table width="80%">
 <tbody>
 <tr>
 <th>
@@ -23,15 +26,17 @@
 <td><%= item.genre.name %></td>
 <td>
 <% if item.is_active == true %>
-<%= '販売中' %>
+<div class="text-success">販売中</div>
 <% else %>
-<%= '販売停止中' %>
+<div class="text-secondary">販売停止中</div>
 <% end %>
 </td>
 <% end %>
 </tr>
 </tbody>
 </table>
+</div>
+</div>
 <%= paginate @items %>
 
 

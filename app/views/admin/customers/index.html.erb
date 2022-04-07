@@ -1,5 +1,13 @@
+<div class="container">
+<div class="row">
+<div class ="col-ml-4"></div>
 <h3>会員一覧</h3>
-<table>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class ="col-ml-6"></div>
+<table width="80%">
 <tbody>
 <tr>
 <th>会員ID</th>
@@ -18,14 +26,16 @@
 <td><%= customer.email %></td>
 <td>
 <% if customer.is_active == true %>
-<%= '有効' %>
+<div class="text-success">有効</div>
 <% else %>
-<%= '退会' %>
+<div class="text-secondary">退会</div>
 <% end %>
 </td>
 <% end %>
 </tr>
 </tbody>
 </table>
+</div>
+</div>
 <%= paginate @customers %>
 

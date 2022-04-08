@@ -23,7 +23,9 @@
 <td><%= order.customer.first_name %>
     <%= order.customer.last_name %>
 </td>
-<td></td>
+<% @ordered_items.each do |ordered_item| %>
+<td><%= order.ordered_items.amount %></td>
+<% end %>
 </tr>
 <% end %>
 </tbody>

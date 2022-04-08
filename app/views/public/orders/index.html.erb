@@ -23,8 +23,12 @@
 〒<%= order.postal_code %></br>
 <%= order.address %></br>
 <%= order.delivery_name %></td>
-<td></td>
-<td></td>
+<% @ordered_items.each do |ordered_item| %>
+<td><%= ordered_item.item.name %></td>
+<td><% @subtotal+= ordered_item.amount*ordered_item.purchase %>
+    <%= @subtotal %>
+    <% end %>
+</td>
 <td><%= link_to '表示する', order_path(order.id),class: 'btn btn-primary' %></td>
 </tr>
 <% end %>

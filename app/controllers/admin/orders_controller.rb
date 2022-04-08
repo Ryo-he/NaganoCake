@@ -1,6 +1,7 @@
 class Admin::OrdersController < ApplicationController
   def index
     @orders = Order.page(params[:page])
+    @ordered_items = OrderedItem.all
   end
 
   def show

@@ -52,6 +52,8 @@ class Public::OrdersController < ApplicationController
 
   def index
     @orders = current_customer.orders
+    @ordered_items = OrderedItem.all
+    @subtotal = 0
   end
 
   def show

@@ -1,4 +1,4 @@
-<div class="container">  
+<div class="container">
 <div class="row justify-content-md-center">
 <div class = "col-ml-auto mt-5">
 <div class = "border border-dark" style = "padding:10px;">ようこそ、ながのCAKEへ！</br>
@@ -8,21 +8,23 @@
 </div>
 </div>
 </div>
-<div class="container">  
+<div class="container">
 <div class="row">
 <div class="col-lg-4"></div>
 <h3>新着商品</h3>
 </div>
 </div>
-<div class="container">  
+<div class="container">
 <div class="row">
 <div class="col-lg-4"></div>
 <% @items.each do |item| %>
 <div class="col-lg-2">
+<%= link_to item_path(item.id) do %>
 <% if item.image.attached? %>
 <%= image_tag item.image, size: "100x100" %>
 <% else %>
 <%= image_tag '/assets/no_image.jpg', size: "50x50" %>
+<% end %>
 <% end %>
 <p><%= item.name %></p>
 <p>￥<%= item.add_tax_price %></p>
@@ -30,7 +32,7 @@
 <% end %>
 </div>
 </div>
-<div class="container">  
+<div class="container">
 <div class="row">
 <div class="col-lg-10"></div>
 <%= link_to "全ての商品を見る＞＞", items_path %>

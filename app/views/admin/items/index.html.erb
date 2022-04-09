@@ -1,7 +1,7 @@
 <div class="container">
 <div class="row">
-<div class ="col-ml-6"></div>
-<table width="80%">
+<div class ="col-ml-6 mt-3">
+<table width="120%">
 <tbody>
 <tr>
 <th>
@@ -35,6 +35,10 @@
 </tr>
 </tbody>
 </table>
+</div>
+<div class ="col-ml-6">
+<%= link_to "+" , new_admin_item_path, class: 'btn btn-outline-dark' %>
+</div>
 </div>
 </div>
 <%= paginate @items %>

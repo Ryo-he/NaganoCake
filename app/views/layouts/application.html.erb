@@ -18,41 +18,41 @@
     <header class = "bg-white">
     <nav class = "navbar">
     <% if customer_signed_in? %>
- 
-   <h3 class="me-auto p-2 bd-highlight border border-dark">Nagano_Cake</h3>
+
+   <h3 class="me-auto p-2 bd-highlight border border-dark">Nagano-Cake</h3>
    <div class="d-flex justify-content-end">
    <div class="p-2 bd-highlight">
       <%= link_to customer_path,class:"text-dark" do %>
       <button type="button" class="btn btn-outline-dark">マイページ</button>
       <% end %>
    </div>
-      
-    <div class="p-2 bd-highlight">  
+
+    <div class="p-2 bd-highlight">
       <%= link_to items_path,class:"text-dark" do %>
       <button type="button" class="btn btn-outline-dark">商品一覧</button>
       <% end %>
-    </div>  
-      
-    <div class="p-2 bd-highlight"> 
+    </div>
+
+    <div class="p-2 bd-highlight">
       <%= link_to cart_items_path, class:"text-dark" do %>
       <button type="button" class="btn btn-outline-dark">カート</button>
       <% end %>
-    </div>  
-      
-    <div class="p-2 bd-highlight">  
+    </div>
+
+    <div class="p-2 bd-highlight">
       <%= link_to destroy_customer_session_path, method: :delete, class:"text-dark" do %>
       <button type="button" class="btn btn-outline-dark">ログアウト</button>
       <% end %>
-    </div>  
+    </div>
     </div>
     </div>
     <% elsif admin_signed_in? %>
-    
-    <h3 class="me-auto p-2 bd-highlight border border-dark">Nagano_Cake</h3>   
-    
+
+    <h3 class="me-auto p-2 bd-highlight border border-dark">Nagano-Cake</h3>
+
     <div class="d-flex justify-content-end">
-      
-    <div class="p-2 bd-highlight"> 
+
+    <div class="p-2 bd-highlight">
       <%= link_to admin_items_path,class:"text-dark" do %>
       <button type="button" class="btn btn-outline-dark">商品一覧</button>
       <% end %>
@@ -71,7 +71,7 @@
        <%= link_to admin_genres_path,class:"text-dark" do %>
       <button type="button" class="btn btn-outline-dark">ジャンル一覧</button>
       <% end %>
-    </div>  
+    </div>
     <div class="p-2 bd-highlight">
       <%= link_to destroy_admin_session_path, method: :delete, class:"text-dark" do %>
       <button type="button" class="btn btn-outline-dark">ログアウト</button>
@@ -79,9 +79,9 @@
     </div>
     </div>
     <% else %>
-    
-    <h3 class="me-auto p-2 bd-highlight border border-dark">Nagano_Cake</h3> 
-    
+
+    <h3 class="me-auto p-2 bd-highlight border border-dark">Nagano-Cake</h3>
+
     <div class="d-flex justify-content-end">
     <div class="p-2 bd-highlight">
       <%= link_to "/homes/about",class:"text-dark" do %>
@@ -107,8 +107,8 @@
     <% end %>
     </nav>
     </nav>
- 
- 
+
+
     </header>
     </div>
     <%= yield %>
